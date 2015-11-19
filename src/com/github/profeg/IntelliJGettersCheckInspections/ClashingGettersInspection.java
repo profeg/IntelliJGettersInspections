@@ -1,6 +1,3 @@
-/**
- * Created by prof on 19.11.15.
- */
 package com.github.profeg.IntelliJGettersCheckInspections;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;

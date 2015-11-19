@@ -1,6 +1,3 @@
-/**
- * Created by prof on 19.11.15.
- */
 package com.github.profeg.IntelliJGettersCheckInspections;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.source.tree.java.PsiReturnStatementImpl;
@@ -15,7 +12,7 @@ public class MethodStartedFromModalVerbInspection extends BaseInspection {
   @NotNull
   @Override
   public String getDisplayName() {
-    return "Getter name for boolean type property";
+    return "A method name started with a modal verb";
   }
   @NotNull
   @Override

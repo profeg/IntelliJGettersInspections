@@ -1,6 +1,3 @@
-/**
- * Created by prof on 19.11.15.
- */
 package com.github.profeg.IntelliJGettersCheckInspections;
 
 import com.intellij.psi.PsiClass;
@@ -49,7 +46,7 @@ public class BooleanGetterInspection extends BaseInspection {
             }
           }
         }
-      }
+      }//reduce right brackets
     }
   }
 }

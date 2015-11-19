@@ -1,6 +1,3 @@
-/**
- * Created by prof on 19.11.15.
- */
 package com.github.profeg.IntelliJGettersCheckInspections;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.source.tree.java.PsiReturnStatementImpl;
@@ -14,7 +11,7 @@ public class CanonicalGetterInspection extends BaseInspection {
   @NotNull
   @Override
   public String getDisplayName() {
-    return "Getter name for boolean type property";
+    return "Probably getter inspections";
   }
   @NotNull
   @Override
@@ -39,7 +36,7 @@ public class CanonicalGetterInspection extends BaseInspection {
           if (!method.getName().equalsIgnoreCase("get" + field.getName()) &&
               !method.getName().equalsIgnoreCase("is" + field.getName()) &&
               methodIsCanonicalGetter(method, field)) {
-            registerError(method.getNameIdentifier(), method.getName() + " method can be a getter with high probability");
+            registerError(method.getNameIdentifier(), method.getName() + " method probably a getter");
           }
         }
       }

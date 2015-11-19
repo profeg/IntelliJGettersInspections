@@ -6,10 +6,12 @@
 
   <description><![CDATA[
       Set of inspections for check a getters.<br>
-      <em>Check for name of a boolean property getter</em>
-      <em>Check for a probably getter</em>
-      <em>Check for a clashing getter names</em>
-      <em>Check for a methods name started from  modal verb and probably getter</em>
+      <ul>
+      <li>Check for name of a boolean property getter</li>
+      <li>Check for a probably getter</li>
+      <li>Check for a clashing getter names</li>
+      <li>Check for a methods name started from  modal verb and probably getter</li>
+      </ul>
     ]]></description>
 
   <change-notes><![CDATA[
