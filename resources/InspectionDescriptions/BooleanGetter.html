@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Getter for boolean property inspection</title>
 </head>
 <body>
-
+<p>In accordance with the JavaBeans specification section 8.3.2:</p>
+<strong>Boolean properties</strong>
+<p>In addition, for boolean properties, we allow a getter method to match the pattern:
+    public boolean is<PropertyName>();This "isPropertyName" method may be provided instead of a "get<PropertyName>" method,or it may be provided in addition to a "get<PropertyName>" method. In either case,if the is<PropertyName> method is present for a boolean property then we will usethe "is<PropertyName>" method to read the property value. An example boolean property might be:</p>
+<em>public boolean isMarsupial(); <br> public void setMarsupial(boolean m);</em>
 </body>
 </html>
