@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IntelliJGettersCheckInspections.iml" filepath="$PROJECT_DIR$/IntelliJGettersCheckInspections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IntelliJGettersInspections.iml" filepath="$PROJECT_DIR$/IntelliJGettersInspections.iml" />
     </modules>
   </component>
 </project>
