@@ -27,7 +27,34 @@
   -->
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
+    <localInspection shortName="BooleanGetter"
+                     displayName="Check getter name for boolean property"
+                     groupPath="Javabeans issues"
+                     groupName="Java"
+                     enabledByDefault="true"
+                     level="WARNING"
+                     implementationClass="com.github.profeg.IntelliJGettersCheckInspections.BooleanGetterInspection"/>
+    <localInspection shortName="CanonicalGetter"
+                     displayName="Check for a probably getter"
+                     groupPath="Javabeans issues"
+                     groupName="Java"
+                     enabledByDefault="true"
+                     level="WARNING"
+                     implementationClass="com.github.profeg.IntelliJGettersCheckInspections.CanonicalGetterInspection"/>
+    <localInspection shortName="ClashingGettersJava"
+                     displayName="Check for a clashing getter names"
+                     groupPath="Probable bugs"
+                     groupName="Java"
+                     enabledByDefault="true"
+                     level="WARNING"
+                     implementationClass="com.github.profeg.IntelliJGettersCheckInspections.ClashingGettersInspection"/>
+    <localInspection shortName="MethodStartedFromModalVerb"
+                     displayName="Check for a methods name started from  modal verb and probably getter"
+                     groupPath="Javabeans issues"
+                     groupName="Java"
+                     enabledByDefault="true"
+                     level="WARNING"
+                     implementationClass="com.github.profeg.IntelliJGettersCheckInspections.MethodStartedFromModalVerbInspection"/>
   </extensions>
 
   <actions>
