@@ -1,0 +1,37 @@
+<idea-plugin version="2">
+  <id>com.github.profeg.IntelliJGettersCheckInspections</id>
+  <name>Set of inspections for check a getters</name>
+  <version>1.0</version>
+  <vendor email="tnd.prof@gmail.com" url="https://tndprof.wordpress.com/">Oleksiy Ostanin</vendor>
+
+  <description><![CDATA[
+      Set of inspections for check a getters.<br>
+      <em>Check for name of a boolean property getter</em>
+      <em>Check for a probably getter</em>
+      <em>Check for a clashing getter names</em>
+      <em>Check for a methods name started from  modal verb and probably getter</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      First edition.<br>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="141.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
