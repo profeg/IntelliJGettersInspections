@@ -36,7 +36,8 @@ public class CanonicalGetterInspection extends BaseInspection {
     private void checkForMethodWhichCanBeGetter(PsiMethod[] methods, PsiField[] fields) {
       for (PsiField field : fields) {
         for (PsiMethod method : methods) {
-          if (!method.getName().startsWith("get") &&
+          if (!method.getName().equalsIgnoreCase("get" + field.getName()) &&
+              !method.getName().equalsIgnoreCase("is" + field.getName()) &&
               methodIsCanonicalGetter(method, field)) {
             registerError(method.getNameIdentifier(), method.getName() + " method can be a getter with high probability");
           }
