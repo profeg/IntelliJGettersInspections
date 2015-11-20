@@ -33,13 +33,14 @@ public class CanonicalGetterInspection extends BaseInspection {
     private void checkForMethodWhichCanBeGetter(PsiMethod[] methods, PsiField[] fields) {
       for (PsiField field : fields) {
         for (PsiMethod method : methods) {
-          if (!method.getName().equalsIgnoreCase("get" + field.getName()) &&
-              !method.getName().equalsIgnoreCase("is" + field.getName()) &&
-              methodIsCanonicalGetter(method, field)) {
+          if (!methodStartsWithGetterSing(field, method) && methodIsCanonicalGetter(method, field)) {
             registerError(method.getNameIdentifier(), method.getName() + " method probably a getter");
           }
         }
       }
+    }
+    private boolean methodStartsWithGetterSing(PsiField field, PsiMethod method) {
+      return method.getName().equalsIgnoreCase("get" + field.getName()) || method.getName().equalsIgnoreCase("is" + field.getName());
     }
     private boolean methodIsCanonicalGetter(PsiMethod method, PsiVariable field) {
       return (method.getParameterList().getParametersCount() == 0) && methodBodyContainsOnlyReturnStatement(method) && method.getReturnType().equals(field.getType());

@@ -55,8 +55,7 @@ public class BooleanGetterInspection extends BaseInspection {
 
     private boolean booleanGetterStartedWithGetPrefix(List<PsiField> fields, PsiMethod method) {
       for (PsiField field : fields) {
-        return method.getName().equalsIgnoreCase("get" + field.getName()) &&
-            GetterUtils.methodIsCanonicalGetter(method, field);
+        return method.getName().equalsIgnoreCase("get" + field.getName()) && GetterUtils.methodIsCanonicalGetter(method, field);
       }
       return false;
     }

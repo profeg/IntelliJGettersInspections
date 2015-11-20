@@ -19,7 +19,10 @@ public class CanonicalGetterInspectionVisitorTest extends LightInspectionTestCas
   public void testProbablyGetter() {
     doTest("class Bean {" +
         "  private int foo;" +
-        "  public int /*isNotDisabled method can be a getter with high probability*/isNotDisabled/**/() { return foo; }" +
+        "  private boolean boo;" +
+        "  public int /*takeFoo method probably a getter*/takeFoo/**/() { return foo; }" +
+        "  public int takeDoubleFoo() { foo *= foo; return foo; }" +
+        "  public boolean isBoo() { return boo; }" +
         "}");
   }
 }
