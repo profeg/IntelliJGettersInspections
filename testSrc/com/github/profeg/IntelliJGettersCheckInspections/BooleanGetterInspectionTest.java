@@ -19,6 +19,7 @@ public class BooleanGetterInspectionTest extends LightInspectionTestCase {
     doTest("class Bean {\n" +
         "  private boolean enabled;\n" +
         "  public boolean /*Boolean type property must have getter started with is*/getEnabled/**/() { return enabled; }\n" +
+        "  public boolean isEnabled() { return enabled; }\n" +
         "}");
   }
 }

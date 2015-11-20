@@ -14,8 +14,4 @@ public class GetterUtils {
     PsiStatement[] statement = method.getBody().getStatements();
     return (statement.length == 1) && (statement[0] instanceof PsiReturnStatementImpl);
   }
-  static boolean isMethodNameKindGetter(PsiMethod method, PsiVariable field) {
-    return method.getName().equalsIgnoreCase("get" + field.getName()) ||
-        method.getName().equalsIgnoreCase("is" + field.getName());
-  }
 }

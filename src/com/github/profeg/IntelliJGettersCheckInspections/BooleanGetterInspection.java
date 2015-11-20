@@ -8,6 +8,9 @@ import com.siyeh.ig.BaseInspectionVisitor;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class BooleanGetterInspection extends BaseInspection {
   @Nls
   @NotNull
@@ -37,16 +40,30 @@ public class BooleanGetterInspection extends BaseInspection {
     }
 
     private void checkForBooleanFields(PsiMethod[] methods, PsiField[] fields) {
+      List<PsiField> booleanProperties = new LinkedList<PsiField>();
       for (PsiField field : fields) {
-        String fieldType = field.getType().getCanonicalText();
-        if ("boolean".equals(fieldType) || "java.lang.Boolean".equals(fieldType)) {
-          for (PsiMethod method : methods) {
-            if (method.getName().equalsIgnoreCase("get" + field.getName())) {
-              registerError(method.getNameIdentifier(), "Boolean type property must have getter started with is");
-            }
-          }
+        if (isThisBooleanProperty(field)) {
+          booleanProperties.add(field);
         }
-      }//reduce right brackets
+      }
+      for (PsiMethod method : methods) {
+        if (booleanGetterStartedWithGetPrefix(booleanProperties, method)) {
+          registerError(method.getNameIdentifier(), "Boolean type property must have getter started with is");
+        }
+      }
+    }
+
+    private boolean booleanGetterStartedWithGetPrefix(List<PsiField> fields, PsiMethod method) {
+      for (PsiField field : fields) {
+        return method.getName().equalsIgnoreCase("get" + field.getName()) &&
+            GetterUtils.methodIsCanonicalGetter(method, field);
+      }
+      return false;
+    }
+
+    private boolean isThisBooleanProperty(PsiField field) {
+      String fieldType = field.getType().getCanonicalText();
+      return "boolean".equals(fieldType) || "java.lang.Boolean".equals(fieldType);
     }
   }
 }
