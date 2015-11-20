@@ -1,4 +1,5 @@
 package com.github.profeg.IntelliJGettersCheckInspections;
+
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.PsiClass;
@@ -7,6 +8,7 @@ import com.intellij.psi.PsiMethod;
 import com.siyeh.ig.BaseInspectionVisitor;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 

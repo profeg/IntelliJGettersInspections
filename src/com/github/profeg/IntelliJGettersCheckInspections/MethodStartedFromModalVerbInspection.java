@@ -1,10 +1,15 @@
 package com.github.profeg.IntelliJGettersCheckInspections;
-import com.intellij.psi.*;
-import com.intellij.psi.impl.source.tree.java.PsiReturnStatementImpl;
+
+import com.intellij.psi.PsiClass;
+import com.intellij.psi.PsiField;
+import com.intellij.psi.PsiMethod;
 import com.siyeh.ig.BaseInspection;
 import com.siyeh.ig.BaseInspectionVisitor;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class MethodStartedFromModalVerbInspection extends BaseInspection {
   private static final String[] MODAL_VERBS = {"has","may","might","can","could","could","need","ought"};
@@ -32,29 +37,27 @@ public class MethodStartedFromModalVerbInspection extends BaseInspection {
       checkForMethodsStartedFromModalVerb(methods, fields);
     }
     private void checkForMethodsStartedFromModalVerb(PsiMethod[] methods, PsiField[] fields) {
+      List<PsiField> booleanProperties = new LinkedList<PsiField>();
       for (PsiField field : fields) {
+        if (GetterUtils.isThisBooleanProperty(field)) {
+          booleanProperties.add(field);
+        }
+      }
         for (PsiMethod method : methods) {
-          if (methodNameStaredWithModalVerb(method.getName(),field.getName()) &&
-              methodIsCanonicalGetter(method, field)) {
+          if (methodNameStaredWithModalVerb(method,booleanProperties)) {
             registerError(method.getNameIdentifier(), method.getName() + " method's name started with a modal verb. Maybe it's a getter?");
           }
         }
-      }
     }
-    private boolean methodNameStaredWithModalVerb(String methodName, String property) {
+    private boolean methodNameStaredWithModalVerb(PsiMethod method, List<PsiField> properties) {
       for (String verb : MODAL_VERBS) {
-        if (methodName.equalsIgnoreCase(verb + property)) {
-          return true;
+        for (PsiField property : properties) {
+          if (method.getName().equalsIgnoreCase(verb + property.getName()) && GetterUtils.methodIsCanonicalGetter(method, property)) {
+            return true;
+          }
         }
       }
       return false;
-    }
-    private boolean methodIsCanonicalGetter(PsiMethod method, PsiVariable field) {
-      return (method.getParameterList().getParametersCount() == 0) && methodBodyContainsOnlyReturnStatement(method) && method.getReturnType().equals(field.getType());
-    }
-    private boolean methodBodyContainsOnlyReturnStatement(PsiMethod method) {
-      PsiStatement[] statement = method.getBody().getStatements();
-      return (statement.length == 1) && (statement[0] instanceof PsiReturnStatementImpl);
     }
   }
 }

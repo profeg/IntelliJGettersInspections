@@ -4,8 +4,6 @@ import com.intellij.codeInspection.InspectionProfileEntry;
 import com.siyeh.ig.LightInspectionTestCase;
 import org.jetbrains.annotations.Nullable;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by prof on 19.11.15.
  */

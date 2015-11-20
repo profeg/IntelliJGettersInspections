@@ -42,7 +42,7 @@ public class BooleanGetterInspection extends BaseInspection {
     private void checkForBooleanFields(PsiMethod[] methods, PsiField[] fields) {
       List<PsiField> booleanProperties = new LinkedList<PsiField>();
       for (PsiField field : fields) {
-        if (isThisBooleanProperty(field)) {
+        if (GetterUtils.isThisBooleanProperty(field)) {
           booleanProperties.add(field);
         }
       }
@@ -60,9 +60,6 @@ public class BooleanGetterInspection extends BaseInspection {
       return false;
     }
 
-    private boolean isThisBooleanProperty(PsiField field) {
-      String fieldType = field.getType().getCanonicalText();
-      return "boolean".equals(fieldType) || "java.lang.Boolean".equals(fieldType);
-    }
+
   }
 }

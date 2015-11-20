@@ -14,4 +14,8 @@ public class GetterUtils {
     PsiStatement[] statement = method.getBody().getStatements();
     return (statement.length == 1) && (statement[0] instanceof PsiReturnStatementImpl);
   }
+  static boolean isThisBooleanProperty(PsiField field) {
+    String fieldType = field.getType().getCanonicalText();
+    return "boolean".equals(fieldType) || "java.lang.Boolean".equals(fieldType);
+  }
 }
