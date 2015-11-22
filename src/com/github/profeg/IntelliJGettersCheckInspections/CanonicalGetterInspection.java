@@ -51,15 +51,9 @@ public class CanonicalGetterInspection extends BaseInspection {
           method.getReturnType().equals(field.getType());
     }
     private boolean methodBodyContainsOnlyReturnStatement(PsiMethod method) {
-
-
-
-
-      if (method.hasModifierProperty("public")) {
-
+      if (!method.hasModifierProperty("public")) {
+        return false;
       }
-
-
       PsiStatement[] statement = method.getBody().getStatements();
       return (statement.length == 1) && (statement[0] instanceof PsiReturnStatementImpl);
     }
