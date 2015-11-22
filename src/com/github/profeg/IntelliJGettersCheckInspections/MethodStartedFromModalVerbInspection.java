@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MethodStartedFromModalVerbInspection extends BaseInspection {
-  private static final String[] MODAL_VERBS = {"has","may","might","can","could","could","need","ought"};
   @Nls
   @NotNull
   @Override
@@ -29,35 +28,21 @@ public class MethodStartedFromModalVerbInspection extends BaseInspection {
     return new MethodStartedFromModalVerbInspectionVisitor();
   }
   private class MethodStartedFromModalVerbInspectionVisitor extends BaseInspectionVisitor {
+    private void checkForMethodsStartedFromModalVerb(PsiMethod[] methods, PsiField[] fields) {
+      for(PsiMethod method : methods) {
+        for (PsiField field : fields) {
+          if (GetterUtils.isThisBooleanProperty(field) && GetterUtils.methodNameStaredWithModalVerb(method, field)) {
+            registerError(method.getNameIdentifier(), method.getName() + " method's name started with a modal verb. Maybe it's a getter?");
+          }
+        }
+      }
+    }
     @Override
     public void visitClass(PsiClass aClass) {
       super.visitClass(aClass);
       PsiMethod[] methods = aClass.getMethods();
       PsiField[] fields = aClass.getFields();
       checkForMethodsStartedFromModalVerb(methods, fields);
-    }
-    private void checkForMethodsStartedFromModalVerb(PsiMethod[] methods, PsiField[] fields) {
-      List<PsiField> booleanProperties = new LinkedList<PsiField>();
-      for (PsiField field : fields) {
-        if (GetterUtils.isThisBooleanProperty(field)) {
-          booleanProperties.add(field);
-        }
-      }
-        for (PsiMethod method : methods) {
-          if (methodNameStaredWithModalVerb(method,booleanProperties)) {
-            registerError(method.getNameIdentifier(), method.getName() + " method's name started with a modal verb. Maybe it's a getter?");
-          }
-        }
-    }
-    private boolean methodNameStaredWithModalVerb(PsiMethod method, List<PsiField> properties) {
-      for (String verb : MODAL_VERBS) {
-        for (PsiField property : properties) {
-          if (method.getName().equalsIgnoreCase(verb + property.getName()) && GetterUtils.methodIsCanonicalGetter(method, property)) {
-            return true;
-          }
-        }
-      }
-      return false;
     }
   }
 }

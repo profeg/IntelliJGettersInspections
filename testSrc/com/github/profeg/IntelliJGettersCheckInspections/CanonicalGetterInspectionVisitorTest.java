@@ -4,9 +4,6 @@ import com.intellij.codeInspection.InspectionProfileEntry;
 import com.siyeh.ig.LightInspectionTestCase;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Created by prof on 19.11.15.
- */
 public class CanonicalGetterInspectionVisitorTest extends LightInspectionTestCase {
   @Nullable
   @Override

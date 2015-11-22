@@ -40,12 +40,26 @@ public class CanonicalGetterInspection extends BaseInspection {
       }
     }
     private boolean methodStartsWithGetterSing(PsiField field, PsiMethod method) {
-      return method.getName().equalsIgnoreCase("get" + field.getName()) || method.getName().equalsIgnoreCase("is" + field.getName());
+
+      return method.getName().equalsIgnoreCase("get" + field.getName()) ||
+          method.getName().equalsIgnoreCase("is" + field.getName()) ||
+          GetterUtils.methodNameStaredWithModalVerb(method,field);
     }
     private boolean methodIsCanonicalGetter(PsiMethod method, PsiVariable field) {
-      return (method.getParameterList().getParametersCount() == 0) && methodBodyContainsOnlyReturnStatement(method) && method.getReturnType().equals(field.getType());
+      return (method.getParameterList().getParametersCount() == 0) &&
+          methodBodyContainsOnlyReturnStatement(method) &&
+          method.getReturnType().equals(field.getType());
     }
     private boolean methodBodyContainsOnlyReturnStatement(PsiMethod method) {
+
+
+
+
+      if (method.hasModifierProperty("public")) {
+
+      }
+
+
       PsiStatement[] statement = method.getBody().getStatements();
       return (statement.length == 1) && (statement[0] instanceof PsiReturnStatementImpl);
     }
