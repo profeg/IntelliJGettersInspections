@@ -1,10 +1,10 @@
 <idea-plugin version="2">
-  <id>com.github.profeg.IntelliJGettersCheckInspections</id>
-  <name>Set of inspections for check a getters</name>
-  <version>1.0</version>
-  <vendor email="tnd.prof@gmail.com" url="https://tndprof.wordpress.com/">Oleksiy Ostanin</vendor>
+    <id>com.github.profeg.IntelliJGettersCheckInspections</id>
+    <name>Set of inspections for check a getters</name>
+    <version>1.0</version>
+    <vendor email="tnd.prof@gmail.com" url="https://tndprof.wordpress.com/">Oleksiy Ostanin</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       Set of inspections for check a getters.<br>
       <ul>
       <li>Check for name of a boolean property getter</li>
@@ -14,53 +14,53 @@
       </ul>
     ]]></description>
 
-  <change-notes><![CDATA[
+    <change-notes><![CDATA[
       First edition.<br>
     ]]>
-  </change-notes>
+    </change-notes>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="141.0"/>
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="141.0"/>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-       on how to target different products -->
-  <!-- uncomment to enable plugin in all products
-  <depends>com.intellij.modules.lang</depends>
-  -->
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
 
-  <extensions defaultExtensionNs="com.intellij">
-    <localInspection shortName="BooleanGetter"
-                     displayName="Check getter name for boolean property"
-                     groupPath="Javabeans issues"
-                     groupName="Java"
-                     enabledByDefault="false"
-                     level="WARNING"
-                     implementationClass="com.github.profeg.IntelliJGettersCheckInspections.BooleanGetterInspection"/>
-    <localInspection shortName="CanonicalGetter"
-                     displayName="Check for a probably getter"
-                     groupPath="Javabeans issues"
-                     groupName="Java"
-                     enabledByDefault="false"
-                     level="WARNING"
-                     implementationClass="com.github.profeg.IntelliJGettersCheckInspections.CanonicalGetterInspection"/>
-    <localInspection shortName="ClashingGettersJava"
-                     displayName="Check for a clashing getter names"
-                     groupPath="Probable bugs"
-                     groupName="Java"
-                     enabledByDefault="false"
-                     level="WARNING"
-                     implementationClass="com.github.profeg.IntelliJGettersCheckInspections.ClashingGettersInspection"/>
-    <localInspection shortName="MethodStartedFromModalVerb"
-                     displayName="Check for a methods name started from  modal verb and probably getter"
-                     groupPath="Javabeans issues"
-                     groupName="Java"
-                     enabledByDefault="false"
-                     level="WARNING"
-                     implementationClass="com.github.profeg.IntelliJGettersCheckInspections.MethodStartedFromModalVerbInspection"/>
-  </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <localInspection shortName="ClashingGettersJava"
+                         displayName="Check for a clashing getter names"
+                         groupName="Probable bugs"
+                         groupPath="Java"
+                         enabledByDefault="false"
+                         level="WARNING"
+                         implementationClass="com.github.profeg.IntelliJGettersCheckInspections.ClashingGettersInspection"/>
+        <localInspection shortName="BooleanGetter"
+                         displayName="Check getter name for boolean property"
+                         groupName="Javabeans issues"
+                         groupPath="Java"
+                         enabledByDefault="false"
+                         level="WARNING"
+                         implementationClass="com.github.profeg.IntelliJGettersCheckInspections.BooleanGetterInspection"/>
+        <localInspection shortName="CanonicalGetter"
+                         displayName="Check for a probably getter"
+                         groupName="Javabeans issues"
+                         groupPath="Java"
+                         enabledByDefault="false"
+                         level="WARNING"
+                         implementationClass="com.github.profeg.IntelliJGettersCheckInspections.CanonicalGetterInspection"/>
+        <localInspection shortName="MethodStartedFromModalVerb"
+                         displayName="Check for a methods name started from  modal verb and probably getter"
+                         groupName="Javabeans issues"
+                         groupPath="Java"
+                         enabledByDefault="false"
+                         level="WARNING"
+                         implementationClass="com.github.profeg.IntelliJGettersCheckInspections.MethodStartedFromModalVerbInspection"/>
+    </extensions>
 
-  <actions>
-    <!-- Add your actions here -->
-  </actions>
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
 
 </idea-plugin>
