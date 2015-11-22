@@ -4,9 +4,6 @@ import com.intellij.codeInspection.InspectionProfileEntry;
 import com.siyeh.ig.LightInspectionTestCase;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Created by prof on 19.11.15.
- */
 public class ClashingGettersInspectionTest extends LightInspectionTestCase {
   @Nullable
   @Override
@@ -17,6 +14,18 @@ public class ClashingGettersInspectionTest extends LightInspectionTestCase {
     doTest("class Bean {\n" +
         "  private boolean enabled;\n" +
         "  public boolean /*Already exist getter isEnabled for this property*/getEnabled/**/() { return enabled; }\n" +
+        "  public boolean /*Already exist getter getEnabled for this property*/isEnabled/**/() { return enabled; }\n" +
+        "}");
+  }
+
+  public void testInheritedClashingGetters() {
+    doTest(
+    "class SuperBean {\n" +
+      "private boolean enabled;\n" +
+        "  public boolean /*Already exist getter isEnabled for this property*/getEnabled/**/() { return enabled; }\n" +
+    "}\n" +
+        "class Bean extends SuperBean{\n" +
+        "  private boolean enabled;\n" +
         "  public boolean /*Already exist getter getEnabled for this property*/isEnabled/**/() { return enabled; }\n" +
         "}");
   }

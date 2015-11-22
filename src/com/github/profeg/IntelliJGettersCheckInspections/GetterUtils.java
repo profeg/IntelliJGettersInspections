@@ -6,7 +6,10 @@ import com.intellij.psi.PsiStatement;
 import com.intellij.psi.PsiVariable;
 import com.intellij.psi.impl.source.tree.java.PsiReturnStatementImpl;
 
+import java.util.List;
+
 public class GetterUtils {
+  private static final String[] MODAL_VERBS = {"has","may","might","can","could","could","need","ought"};
   static boolean methodIsCanonicalGetter(PsiMethod method, PsiVariable field) {
     return (method.getParameterList().getParametersCount() == 0) && methodBodyContainsOnlyReturnStatement(method) && method.getReturnType().equals(field.getType());
   }
@@ -17,5 +20,13 @@ public class GetterUtils {
   static boolean isThisBooleanProperty(PsiField field) {
     String fieldType = field.getType().getCanonicalText();
     return "boolean".equals(fieldType) || "java.lang.Boolean".equals(fieldType);
+  }
+  static boolean methodNameStaredWithModalVerb(PsiMethod method,PsiField property) {
+    for (String verb : MODAL_VERBS) {
+        if (method.getName().equalsIgnoreCase(verb + property.getName()) && GetterUtils.methodIsCanonicalGetter(method, property)) {
+          return true;
+      }
+    }
+    return false;
   }
 }

@@ -8,6 +8,7 @@ import com.intellij.psi.PsiMethod;
 import com.siyeh.ig.BaseInspectionVisitor;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
+import com.github.profeg.IntelliJGettersCheckInspections.quickFixes.QuickFixes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,12 +43,10 @@ public class ClashingGettersInspection extends BaseJavaLocalInspectionTool {
       for (PsiMethod m :methods) {
         if (isPropertyGetter(m)) {
           String propertyName = extractPropertyName(m.getName());
-//                System.out.println(m.getName() + " " + propertyName);
           PsiMethod previousGetter = propertyGetters.get(propertyName);
           if (previousGetter != null) {
-            problemsHolder.registerProblem(m.getNameIdentifier(), "Already exist getter " + previousGetter.getName() + " for this property");
-            problemsHolder.registerProblem(previousGetter.getNameIdentifier(), "Already exist getter " + m.getName() + " for this property");
-//                    System.out.println("Already exist getter " + previousGetter.getName() + " for this property");
+            problemsHolder.registerProblem(m.getNameIdentifier(), "Already exist getter " + previousGetter.getName() + " for this property",QuickFixes.CLASHING_GETTERS_FIX);
+            problemsHolder.registerProblem(previousGetter.getNameIdentifier(), "Already exist getter " + m.getName() + " for this property",QuickFixes.CLASHING_GETTERS_FIX);
           } else {
             propertyGetters.put(propertyName,m);
           }
