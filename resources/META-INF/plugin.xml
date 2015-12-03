@@ -12,6 +12,7 @@
       <li>Check for a clashing getter names</li>
       <li>Check for a methods name started from  modal verb and probably getter</li>
       </ul>
+      All inspections set off by default. So dont forget to swich it on.
     ]]></description>
 
     <change-notes><![CDATA[
