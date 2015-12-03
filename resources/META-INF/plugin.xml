@@ -5,7 +5,7 @@
     <vendor email="tnd.prof@gmail.com" url="https://tndprof.wordpress.com/">Oleksiy Ostanin</vendor>
 
     <description><![CDATA[
-      Set of inspections for check a getters.<br>
+      Set of inspections for check getters.<br>
       <ul>
       <li>Check for name of a boolean property getter</li>
       <li>Check for a probably getter</li>
