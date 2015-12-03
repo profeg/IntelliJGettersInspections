@@ -1,6 +1,6 @@
 #Set of inspections for IntelliJIdea IDE.
 
-Just now, this set contains four inspections.     
+##Just now, this set contains four inspections:     
 * Check for name of a boolean property getter     
 * Check for a probably getter   
 * Check for a clashing getter names     
