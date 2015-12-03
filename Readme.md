@@ -1,4 +1,4 @@
-#Set of inspections for IntelliJIdea IDE.
+#Set of inspections for a IntelliJIdea IDE.
 
 ##Just now, this set contains four inspections:     
 * Check for name of a boolean property getter     
