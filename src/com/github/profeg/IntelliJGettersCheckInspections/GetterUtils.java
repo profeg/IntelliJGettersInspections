@@ -27,4 +27,10 @@ public class GetterUtils {
     }
     return false;
   }
+  static boolean methodStartsWithGetterSing(PsiField field, PsiMethod method) {
+
+    return method.getName().equalsIgnoreCase("get" + field.getName()) ||
+        method.getName().equalsIgnoreCase("is" + field.getName()) ||
+        GetterUtils.methodNameStaredWithModalVerb(method,field);
+  }
 }
