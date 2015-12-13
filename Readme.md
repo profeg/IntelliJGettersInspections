@@ -6,7 +6,10 @@
 * Check for a clashing getter names     
 * Check for a methods name started from  modal verb and probably getter     
 
-##All inspections is on by default.    
+## Installations 
+Download jar file from [JetBrains Plugins](https://plugins.jetbrains.com/plugin/8083?pr=)     
+
+All inspections is on by default.    
 ##Check for name of a boolean property getter     
 In accordance with the JavaBeans specification section 8.3.2:    
 <p>Boolean properties:     
