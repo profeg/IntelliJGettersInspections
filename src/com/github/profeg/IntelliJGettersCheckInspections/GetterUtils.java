@@ -6,8 +6,6 @@ import com.intellij.psi.PsiStatement;
 import com.intellij.psi.PsiVariable;
 import com.intellij.psi.impl.source.tree.java.PsiReturnStatementImpl;
 
-import java.util.List;
-
 public class GetterUtils {
   private static final String[] MODAL_VERBS = {"has","may","might","can","could","could","need","ought"};
   static boolean methodIsCanonicalGetter(PsiMethod method, PsiVariable field) {
@@ -28,5 +26,11 @@ public class GetterUtils {
       }
     }
     return false;
+  }
+  static boolean methodStartsWithGetterSing(PsiField field, PsiMethod method) {
+
+    return method.getName().equalsIgnoreCase("get" + field.getName()) ||
+        method.getName().equalsIgnoreCase("is" + field.getName()) ||
+        GetterUtils.methodNameStaredWithModalVerb(method,field);
   }
 }

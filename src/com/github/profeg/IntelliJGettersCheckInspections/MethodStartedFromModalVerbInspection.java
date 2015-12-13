@@ -8,9 +8,6 @@ import com.siyeh.ig.BaseInspectionVisitor;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class MethodStartedFromModalVerbInspection extends BaseInspection {
   @Nls
   @NotNull

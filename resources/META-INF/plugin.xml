@@ -5,13 +5,14 @@
     <vendor email="tnd.prof@gmail.com" url="https://tndprof.wordpress.com/">Oleksiy Ostanin</vendor>
 
     <description><![CDATA[
-      Set of inspections for check a getters.<br>
+      Set of inspections for check getters.<br>
       <ul>
       <li>Check for name of a boolean property getter</li>
       <li>Check for a probably getter</li>
       <li>Check for a clashing getter names</li>
       <li>Check for a methods name started from  modal verb and probably getter</li>
       </ul>
+      All inspections set off by default. So dont forget to swich it on.
     ]]></description>
 
     <change-notes><![CDATA[
@@ -33,28 +34,28 @@
                          displayName="Check for a clashing getter names"
                          groupName="Probable bugs"
                          groupPath="Java"
-                         enabledByDefault="false"
+                         enabledByDefault="true"
                          level="WARNING"
                          implementationClass="com.github.profeg.IntelliJGettersCheckInspections.ClashingGettersInspection"/>
         <localInspection shortName="BooleanGetter"
                          displayName="Check getter name for boolean property"
                          groupName="JavaBeans issues"
                          groupPath="Java"
-                         enabledByDefault="false"
+                         enabledByDefault="true"
                          level="WARNING"
                          implementationClass="com.github.profeg.IntelliJGettersCheckInspections.BooleanGetterInspection"/>
         <localInspection shortName="CanonicalGetter"
                          displayName="Check for a probably getter"
                          groupName="JavaBeans issues"
                          groupPath="Java"
-                         enabledByDefault="false"
+                         enabledByDefault="true"
                          level="WARNING"
                          implementationClass="com.github.profeg.IntelliJGettersCheckInspections.CanonicalGetterInspection"/>
         <localInspection shortName="MethodStartedFromModalVerb"
                          displayName="Check for a methods name started from  modal verb and probably getter"
                          groupName="JavaBeans issues"
                          groupPath="Java"
-                         enabledByDefault="false"
+                         enabledByDefault="true"
                          level="WARNING"
                          implementationClass="com.github.profeg.IntelliJGettersCheckInspections.MethodStartedFromModalVerbInspection"/>
     </extensions>
