@@ -2,10 +2,11 @@
 
 ## Installation:   
 Download jar file from [JetBrains Plugins](https://plugins.jetbrains.com/plugin/8083?pr=)     
-File -> Settings -> Install plugin from disk
+File -> Settings -> Install plugin from disk     
 All inspections is on by default.
 
-## Description:     
+## Description:
+This plugin contains four inspections.
 ### Check for name of a boolean property getter
 In accordance with the JavaBeans specification section 8.3.2:    
 <p>Boolean properties:     
@@ -24,7 +25,7 @@ Both methods are getters for property 'x'. So the result of invoking
 This inspection reports methods which have such a problem. 
 ### Check for a methods name started from  modal verb and probably getter     
 This method started from a modal verb. Probably this is a getter.   
-## Changelog
+## Changelog:
 [All releases](https://github.com/profeg/IntelliJGettersInspections/releases)
 
 ###v1.0 Pre-release version.     
