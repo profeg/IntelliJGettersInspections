@@ -28,5 +28,5 @@ This method started from a modal verb. Probably this is a getter.
 ## Changelog:
 [All releases](https://github.com/profeg/IntelliJGettersInspections/releases)
 
-###v1.0 Pre-release version.     
+###v1.0 Release version.     
 [Source](https://github.com/profeg/IntelliJGettersInspections/releases/tag/v1.0)
