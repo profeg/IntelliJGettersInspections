@@ -5,12 +5,12 @@
     <vendor email="tnd.prof@gmail.com" url="https://tndprof.wordpress.com/">Oleksiy Ostanin</vendor>
 
     <description><![CDATA[
-      Set of inspections for check getters.<br>
+      JavaBeans Getters Inspection<br>
       <ul>
-      <li>Check for name of a boolean property getter</li>
-      <li>Check for a probably getter</li>
-      <li>Check for a clashing getter names</li>
-      <li>Check for a methods name started from  modal verb and probably getter</li>
+      <li>Name of a boolean property getter</li>
+      <li>Method probably is a getter</li>
+      <li>Clashing getters names</li>
+      <li>Methods name started from  modal verb and probably getter</li>
       </ul>
       All inspections set on by default.
     ]]></description>
